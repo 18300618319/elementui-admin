@@ -16,24 +16,24 @@
         <div class="main-header-con" :style="{paddingLeft: shrink?'60px':'200px'}">
             <div class="main-header">
                 <div class="navicon-con">
-                    <Button :style="{transform: 'rotateZ(' + (this.shrink ? '-90' : '0') + 'deg)'}" type="text" @click="toggleClick">
-                        <Icon type="navicon" size="32"></Icon>
-                    </Button>
+                    <el-button :style="{transform: 'rotateZ(' + (this.shrink ? '-90' : '0') + 'deg)'}" type="text" @click="toggleClick">
+                        <i class="navicon" size="32"></i>
+                    </el-button>
                 </div>
                 <div class="header-avator-con">
                     <div class="user-dropdown-menu-con">
-                        <Row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
-                            <Dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
+                        <el-row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
+                            <el-dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
                                 <a href="javascript:void(0)">
                                     <span class="main-user-name">{{ userName }}</span>
-                                    <Icon type="arrow-down-b"></Icon>
+                                    <i class="arrow-down-b"></i>
                                 </a>
-                                <DropdownMenu slot="list">
-                                    <DropdownItem name="loginout" divided>退出登录</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
-                            <Avatar icon="person" style="background: #619fe7;margin-left:10px;"></Avatar>
-                        </Row>
+                                <el-dropdown-menu slot="dropdown">
+                                    <el-dropdown-item name="loginout" divided>退出登录</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </el-dropdown>
+                            <i class="person" style="background: #619fe7;margin-left:10px;"></i>
+                        </el-row>
                     </div>
                 </div>
             </div>

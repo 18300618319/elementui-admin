@@ -37,10 +37,6 @@ module.exports = {
                 }
             },
             {
-                test: /iview\/.*?js$/,
-                loader: 'babel-loader'
-            },
-            {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/

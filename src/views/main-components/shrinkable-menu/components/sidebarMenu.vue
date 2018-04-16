@@ -3,25 +3,25 @@
 </style>
 
 <template>
-    <el-menu ref="sideMenu" :active-name="$route.name" :open-names="openNames" :theme="menuTheme" width="auto" @on-select="changeMenu">
+    <el-menu ref="sideMenu" :default-active="$route.name" :default-openeds="openNames" :theme="menuTheme" width="auto" @on-select="changeMenu">
         <template v-for="item in menuList">
-            <MenuItem v-if="item.children.length<=1" :name="item.children[0].name" :key="item.path">
-                <Icon :type="item.icon" :size="iconSize" :key="item.path"></Icon>
+            <el-menu-item v-if="item.children.length<=1" :name="item.children[0].name" :key="item.path">
+                <i :class="item.icon" :size="iconSize" :key="item.path"></i>
                 <span class="layout-text" :key="item.path">{{ itemTitle(item) }}</span>
-            </MenuItem>
+            </el-menu-item>
 
-            <Submenu v-if="item.children.length > 1" :name="item.name" :key="item.path">
+            <el-submenu v-if="item.children.length > 1" :name="item.name" :key="item.path">
                 <template slot="title">
-                    <Icon :type="item.icon" :size="iconSize"></Icon>
+                    <i :class="item.icon" :size="iconSize"></i>
                     <span class="layout-text">{{ itemTitle(item) }}</span>
                 </template>
                 <template v-for="child in item.children">
-                    <MenuItem :name="child.name" :key="child.name">
-                        <Icon :type="child.icon" :size="iconSize" :key="child.name"></Icon>
+                    <el-menu-item :name="child.name" :key="child.name">
+                        <i :class="child.icon" :size="iconSize" :key="child.name"></i>
                         <span class="layout-text" :key="child.name">{{ child.title }}</span>
-                    </MenuItem>
+                    </el-menu-item>
                 </template>
-            </Submenu>
+            </el-submenu>
         </template>
     </el-menu>
 </template>
@@ -55,7 +55,7 @@ export default {
     updated () {
         this.$nextTick(() => {
             if (this.$refs.sideMenu) {
-                this.$refs.sideMenu.updateOpened();
+                // this.$refs.sideMenu.updateOpened();
             }
         });
     }
