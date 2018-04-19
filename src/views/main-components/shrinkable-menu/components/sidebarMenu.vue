@@ -3,7 +3,10 @@
 </style>
 
 <template>
-    <el-menu ref="sideMenu" :default-active="$route.name" :default-openeds="openNames" :theme="menuTheme" width="auto" @on-select="changeMenu" router='true'>
+    <el-menu ref="sideMenu" :default-active="$route.name" :default-openeds="openNames"
+     :theme="menuTheme" width="auto" @on-select="changeMenu" :router='true'
+      background-color="rgb(73,80,96)" text-color="#fff" active-text-color="#ffd04b"
+       active-background-color="#ffd04b">
         <template v-for="item in menuList">
             <el-menu-item v-if="item.children.length<=1" :name="item.children[0].name" :key="item.path" :index="item.children[0].path">
                 <i :class="item.icon" :size="iconSize" :key="item.path"></i>
